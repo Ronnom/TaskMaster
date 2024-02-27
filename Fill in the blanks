@@ -1,0 +1,52 @@
+import java.util.Scanner;
+
+public class FillInTheBlankGameWithChoices {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        String[] sentences = {
+            "Java is a ___-oriented programming language.",
+            "Java was created at ____.",
+            "String i = scanner.____.",
+            "Where is COC located____.",
+            "Who is our computer programming proffesor___.",
+            "Our department is called ___."
+        };
+
+        String[][] choices = {
+            {"a) object", "b) class", "c) method"},
+            {"a) Philippines", "b) Sun Microsystems", "c) Coc"},
+            {"a) nextString();", "b) nextIntt();", "c) nextLine();"},
+            {"a) Carmen", "b) Gusa", "c) Lapasan"},
+            {"a) Sir. Pitok", "b) Ma'am Taypin", "c) Ma'am Voyce"},
+            {"a) COE", "b) CAS", "c) CITE"}
+        };
+
+        char[] answers = {'a', 'b', 'c', 'a', 'b', 'c'};
+
+        System.out.println("------Task Master. A mini project made by first year, computer programming: group 10!-------");
+        System.out.println("--Choose the correct option for each sentence.--");
+
+        int score = 0;
+        for (int i = 0; i < sentences.length; i++) {
+            System.out.println("\n" + sentences[i]);
+            for (String choice : choices[i]) {
+                System.out.println(choice);
+            }
+            System.out.print("Your answer: ");
+            char userChoice = scanner.nextLine().toLowerCase().charAt(0);
+
+            if (userChoice == answers[i]) {
+                System.out.println("Correct!");
+                score++;
+            } else {
+                System.out.println("Incorrect! The correct answer is: " + answers[i]);
+            }
+        }
+
+        System.out.println("\nGame Over!");
+        System.out.println("Your final score: " + score + " out of " + sentences.length);
+
+        scanner.close();
+    }
+}
